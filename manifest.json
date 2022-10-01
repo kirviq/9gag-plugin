@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"name": "Fix 9gag",
+	"description": "Enable tag filtering and detect old posts.",
+	"version": "1.0",
+	"icons": {
+		"68": "9gag-logo.png"
+	},
+	"background": {
+		"scripts": ["background/background.js"],
+		"persistent": false
+	},
+	"page_action": {
+		"default_icon": {
+			"68": "9gag-logo.png"
+		}
+	},
+	"permissions": [
+		"declarativeContent",
+		"*://9gag.com/*"
+	],
+	"content_scripts": [
+		{
+			"matches": ["*://9gag.com/*"],
+			"css": ["9gag_content_script.css"],
+			"js": ["moment-with-locales.min.js", "9gag_content_script.js"]
+		}
+	]
+}
